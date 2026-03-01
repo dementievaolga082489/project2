@@ -21,6 +21,10 @@ lint = [
     "isort (>=7.0.0,<8.0.0)",
     "mypy (>=1.19.1,<2.0.0)"
 ]
+dev = [
+    "pytest (>=9.0.2,<10.0.0)",
+    "pytest-cov (>=7.0.0,<8.0.0)"
+]
 
 [tool.black]
 line-length = 119
@@ -34,4 +38,8 @@ disallow_untyped_defs = true
 warn_return_any = true
 exclude = "venv"
 
+# Для тестов
+[[tool.mypy.overrides]]
+module = "tests.*"
+ignore_errors = true
 
