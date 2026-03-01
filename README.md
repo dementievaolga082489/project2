@@ -51,7 +51,7 @@
 
 
 + Модуль processing
-содержит  функции для фильтрации и сортировки банковских операций:
+содержит  функции для фильтрации и сортировки банковских данных:
 
 **filter_by_state(list dict: list[dict[str, Any]], state: str = 'EXECUTED') -> list[dict[str, Any]]**
 
@@ -62,6 +62,21 @@
 
 Сортирует список операций по дате (например по убыванию)
 
+
++ Модуль generators
+содержит функции, реализующие генераторы для обработки данных.:
+
+**filter_by_currency(transactions: List[Dict[str, Any]], currency: str) -> Iterator[Dict[str, Any]]**
+
+Фильтрует транзакции по заданной валюте
+
+**transaction_descriptions(transactions: List[Dict]) -> Generator[str, None, None]**
+
+Фильтрует транзакции по описанию операции
+
+**card_number_generator(start: int, end: int) -> Generator[str]**
+
+Гененерирует номера карт в заданном диапозоне
       
 
 ## Разработка:
