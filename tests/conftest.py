@@ -140,3 +140,9 @@ def transactions_():
             "to": "Счет 14211924144426031657",
         },
     ]
+
+# Фикстура для модуля decorates.py
+@pytest.fixture
+def log_filename(tmp_path):
+    """Фикстура для создания временного файла лога"""
+    return str(tmp_path / "test.log")
