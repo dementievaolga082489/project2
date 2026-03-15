@@ -1,6 +1,8 @@
+from src.external_api import get_convert
 from src.generators import card_number_generator, filter_by_currency, transaction_descriptions
 from src.masks import get_mask_account, get_mask_card_number
 from src.processing import filter_by_state, sort_by_date
+from src.utils import read_json_file
 from src.widget import get_date, mask_account_card
 
 if __name__ == "__main__":
@@ -83,3 +85,13 @@ for _ in range(3):
 
 for card_number in card_number_generator(9999999999999988, 9999999999999999):
     print(card_number)
+
+
+transactions = read_json_file("data/operations.json")
+print(*transactions, sep="\n")
+
+transaction = {"id": 41428829, "operationAmount": {"amount": "8221.37", "currency": {"name": "USD", "code": "USD"}}}
+
+result = get_convert(transaction)
+print("---")
+print(f"Итоговая сумма: {result} RUB")
