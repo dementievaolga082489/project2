@@ -141,8 +141,22 @@ def transactions_():
         },
     ]
 
+
 # Фикстура для модуля decorates.py
 @pytest.fixture
 def log_filename(tmp_path):
     """Фикстура для создания временного файла лога"""
     return str(tmp_path / "test.log")
+
+
+# Фикстуры для модуля external.api
+@pytest.fixture
+def usd_transaction() -> Dict[str, Any]:
+    """Фикстура для транзакции в долларах"""
+    return {"operationAmount": {"amount": "100.00", "currency": {"code": "USD"}}}
+
+
+@pytest.fixture
+def rub_transaction() -> Dict[str, Any]:
+    """Фикстура для транзакции в рублях"""
+    return {"operationAmount": {"amount": "1000.50", "currency": {"code": "RUB"}}}
