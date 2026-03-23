@@ -4,6 +4,7 @@ from src.masks import get_mask_account, get_mask_card_number
 from src.processing import filter_by_state, sort_by_date
 from src.utils import read_json_file
 from src.widget import get_date, mask_account_card
+from src.transaction_reader import reader_csv_file, reader_excel_file, CSV_FILE, EXL_FILE
 
 if __name__ == "__main__":
     print(get_mask_card_number("7812345666565634"))
@@ -95,3 +96,14 @@ transaction = {"id": 41428829, "operationAmount": {"amount": "8221.37", "currenc
 result = get_convert(transaction)
 print("---")
 print(f"Итоговая сумма: {result} RUB")
+
+print("---")
+print("---")
+
+transaction = reader_csv_file(str(CSV_FILE))
+print(transaction[1:3])
+print("---")
+
+
+transaction_ = reader_excel_file(str(EXL_FILE))
+print(transaction_[0])
