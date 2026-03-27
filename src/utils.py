@@ -30,7 +30,7 @@ def read_json_file(file_path: str) -> list:
             if isinstance(transactions_list, list):
                 logger.info(f"Файл {file_path} успешно прочитан")
                 return transactions_list
-    except (FileNotFoundError, json.JSONDecodeError):
+    except FileNotFoundError:
         logger.error(f"Файл {file_path} не найден")
         return []
 
